@@ -1,53 +1,111 @@
 #include <stdio.h>
 
 int main() {
-    float thunhap, thue, thunhaptinhthue;
-    printf("Thu nhap ca nhan cua ban la:\n");
-    scanf("%f", &thunhap);
+    int d, m, y;
+    int songay = 0;
+    int namNhuan = 0;
 
-    if (thunhap <= 11000000) {
-        printf("Khong phai tinh thue\n");
+    printf("Nhap ngay: ");
+    scanf("%d", &d);
+
+    printf("Nhap thang: ");
+    scanf("%d", &m);
+
+    printf("Nhap nam: ");
+    scanf("%d", &y);
+
+    if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) {
+        namNhuan = 1;
+    }
+
+    if (m < 1 || m > 12) {
+        printf("Thang khong hop le.");
     } else {
-        thunhaptinhthue = thunhap - 11000000;
-
-        if (thunhaptinhthue <= 5000000) {
-            thue = thunhaptinhthue * 0.05;
-            printf("Thue ban phai tra la: %.0f VND\n", thue);
-        } else {
-            if (thunhaptinhthue <= 10000000) {
-                thue = 5000000 * 0.05 + (thunhaptinhthue - 5000000) * 0.10;
-                printf("Thue ban phai tra la: %.0f VND\n", thue);
+        if (m == 1) {
+            if (d >= 1 && d <= 31) {
+                songay = d;
             } else {
-                if (thunhaptinhthue <= 18000000) {
-                    thue = 5000000 * 0.05 + 5000000 * 0.10
-                         + (thunhaptinhthue - 10000000) * 0.15;
-                    printf("Thue ban phai tra la: %.0f VND\n", thue);
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 2) {
+            if (namNhuan) {
+                if (d >= 1 && d <= 29) {
+                    songay = 31 + d;
                 } else {
-                    if (thunhaptinhthue <= 32000000) {
-                        thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15
-                             + (thunhaptinhthue - 18000000) * 0.20;
-                        printf("Thue ban phai tra la: %.0f VND\n", thue);
-                    } else {
-                        if (thunhaptinhthue <= 52000000) {
-                            thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15 
-                                 + 14000000 * 0.20 + (thunhaptinhthue - 32000000) * 0.25;
-                            printf("Thue ban phai tra la: %.0f VND\n", thue);
-                        } else {
-                            if (thunhaptinhthue <= 80000000) {
-                                thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15 
-                                     + 14000000 * 0.20 + 20000000 * 0.25
-                                     + (thunhaptinhthue - 52000000) * 0.30;
-                                printf("Thue ban phai tra la: %.0f VND\n", thue);
-                            } else {
-                                thue = 5000000 * 0.05 + 5000000 * 0.10 + 8000000 * 0.15 
-                                     + 14000000 * 0.20 + 20000000 * 0.25 + 28000000 * 0.30
-                                     + (thunhaptinhthue - 80000000) * 0.35;
-                                printf("Thue ban phai tra la: %.0f VND\n", thue);
-                            }
-                        }
-                    }
+                    printf("Ngay khong hop le.");
+                }
+            } else {
+                if (d >= 1 && d <= 28) {
+                    songay = 31 + d;
+                } else {
+                    printf("Ngay khong hop le.");
                 }
             }
+        } else if (m == 3) {
+            if (d >= 1 && d <= 31) {
+                songay = 31 + (namNhuan ? 29 : 28) + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 4) {
+            if (d >= 1 && d <= 30) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 5) {
+            if (d >= 1 && d <= 31) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 6) {
+            if (d >= 1 && d <= 30) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + 31 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 7) {
+            if (d >= 1 && d <= 31) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + 31 + 30 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 8) {
+            if (d >= 1 && d <= 31) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + 31 + 30 + 31 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 9) {
+            if (d >= 1 && d <= 30) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + 31 + 30 + 31 + 31 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 10) {
+            if (d >= 1 && d <= 31) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + 31 + 30 + 31 + 31 + 30 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 11) {
+            if (d >= 1 && d <= 30) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
+        } else if (m == 12) {
+            if (d >= 1 && d <= 31) {
+                songay = 31 + (namNhuan ? 29 : 28) + 31 + 30 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + d;
+            } else {
+                printf("Ngay khong hop le.");
+            }
         }
+
+        printf("Day la ngay thu %d trong nam %d.\n", songay, y);
     }
+
+    return 0;
 }
+
